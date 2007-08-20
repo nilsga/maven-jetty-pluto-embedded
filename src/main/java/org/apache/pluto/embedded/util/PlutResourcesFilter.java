@@ -1,3 +1,23 @@
+/*
+ * $Id: $
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.apache.pluto.embedded.util;
 
 import java.io.IOException;
@@ -38,7 +58,10 @@ public class PlutResourcesFilter implements Filter {
 			if (resourceUrl == null) {
 				// Serve resource from classpath
 				resourceUrl = Thread.currentThread().getContextClassLoader().getResource(resource);
-				if (resourceUrl == null) {
+				if (resourceUrl == null && resource.startsWith("/")) {
+					resourceUrl = Thread.currentThread().getContextClassLoader().getResource(resource.substring(1));
+				}
+				if(resourceUrl == null) {
 					chain.doFilter(request, response);
 				} else {
 					Calendar cal = Calendar.getInstance();
@@ -66,8 +89,7 @@ public class PlutResourcesFilter implements Filter {
 						httpServletResponse.setDateHeader("Retry-After", expires);
 						httpServletResponse.setHeader("Cache-Control", "public");
 						httpServletResponse.setDateHeader("Last-Modified", lastModifiedMillis);
-						InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(
-								resource);
+						InputStream stream = resourceUrl.openStream();
 						OutputStream out = response.getOutputStream();
 						try {
 							int read = stream.read();
@@ -76,7 +98,7 @@ public class PlutResourcesFilter implements Filter {
 								read = stream.read();
 							}
 						} finally {
-							stream.close();
+								stream.close();
 						}
 					}
 				}

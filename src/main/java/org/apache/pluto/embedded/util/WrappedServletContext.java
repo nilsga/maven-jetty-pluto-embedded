@@ -1,3 +1,23 @@
+/*
+ * $Id: $
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.apache.pluto.embedded.util;
 
 import java.io.InputStream;
@@ -20,24 +40,24 @@ public class WrappedServletContext implements ServletContext {
 		this.realContext = realContext;
 	}
 
-	public Object getAttribute(String arg0) {
-		return realContext.getAttribute(arg0);
+	public Object getAttribute(String name) {
+		return realContext.getAttribute(name);
 	}
 
 	public Enumeration getAttributeNames() {
 		return realContext.getAttributeNames();
 	}
 
-	public ServletContext getContext(String arg0) {
-		return realContext.getContext(arg0);
+	public ServletContext getContext(String uripath) {
+		return realContext.getContext(uripath);
 	}
 
 	public String getContextPath() {
 		return realContext.getContextPath();
 	}
 
-	public String getInitParameter(String arg0) {
-		return realContext.getInitParameter(arg0);
+	public String getInitParameter(String name) {
+		return realContext.getInitParameter(name);
 	}
 
 	public Enumeration getInitParameterNames() {
@@ -48,56 +68,64 @@ public class WrappedServletContext implements ServletContext {
 		return realContext.getMajorVersion();
 	}
 
-	public String getMimeType(String arg0) {
-		return realContext.getMimeType(arg0);
+	public String getMimeType(String file) {
+		return realContext.getMimeType(file);
 	}
 
 	public int getMinorVersion() {
 		return realContext.getMinorVersion();
 	}
 
-	public RequestDispatcher getNamedDispatcher(String arg0) {
-		return realContext.getNamedDispatcher(arg0);
+	public RequestDispatcher getNamedDispatcher(String name) {
+		return realContext.getNamedDispatcher(name);
 	}
 
-	public String getRealPath(String arg0) {
-		return realContext.getRealPath(arg0);
+	public String getRealPath(String path) {
+		return realContext.getRealPath(path);
 	}
 
-	public RequestDispatcher getRequestDispatcher(String arg0) {
-		return realContext.getRequestDispatcher(arg0);
+	public RequestDispatcher getRequestDispatcher(String path) {
+		return realContext.getRequestDispatcher(path);
 	}
 
-	public URL getResource(String arg0) throws MalformedURLException {
-		URL resource = realContext.getResource(arg0);
+	public URL getResource(String path) throws MalformedURLException {
+		URL resource = realContext.getResource(path);
 		if(resource == null) {
 			//resolve from classpath
 			ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-			resource = classloader.getResource(arg0);
+			resource = classloader.getResource(path);
+			if(resource == null && path.startsWith("/")) {
+				// Try to resolve it with a relative path instead
+				resource = classloader.getResource(path.substring(1));
+			}
 		}
 		return resource;
 	}
 
-	public InputStream getResourceAsStream(String arg0) {
-		InputStream stream = realContext.getResourceAsStream(arg0);
+	public InputStream getResourceAsStream(String path) {
+		InputStream stream = realContext.getResourceAsStream(path);
 		if(stream == null) {
 			// resolve from classpath
 			ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-			stream = classloader.getResourceAsStream(arg0);
+			stream = classloader.getResourceAsStream(path);
+			if(stream == null && path.startsWith("/")) {
+				// Try to resolve it with a relative path instead
+				stream = classloader.getResourceAsStream(path.substring(1));
+			}
 		}
 		return stream;
 	}
 
-	public Set getResourcePaths(String arg0) {
-		return realContext.getResourcePaths(arg0);
+	public Set getResourcePaths(String path) {
+		return realContext.getResourcePaths(path);
 	}
 
 	public String getServerInfo() {
 		return realContext.getServerInfo();
 	}
 
-	public Servlet getServlet(String arg0) throws ServletException {
-		return realContext.getServlet(arg0);
+	public Servlet getServlet(String name) throws ServletException {
+		return realContext.getServlet(name);
 	}
 
 	public String getServletContextName() {
@@ -112,24 +140,24 @@ public class WrappedServletContext implements ServletContext {
 		return realContext.getServlets();
 	}
 
-	public void log(Exception arg0, String arg1) {
-		realContext.log(arg0, arg1);
+	public void log(Exception exception, String message) {
+		realContext.log(exception, message);
 	}
 
-	public void log(String arg0, Throwable arg1) {
-		realContext.log(arg0, arg1);
+	public void log(String message, Throwable exception) {
+		realContext.log(message, exception);
 	}
 
-	public void log(String arg0) {
-		realContext.log(arg0);
+	public void log(String message) {
+		realContext.log(message);
 	}
 
-	public void removeAttribute(String arg0) {
-		realContext.removeAttribute(arg0);
+	public void removeAttribute(String name) {
+		realContext.removeAttribute(name);
 	}
 
-	public void setAttribute(String arg0, Object arg1) {
-		realContext.setAttribute(arg0, arg1);
+	public void setAttribute(String name, Object value) {
+		realContext.setAttribute(name, value);
 	}
 	
 	
