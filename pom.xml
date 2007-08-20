@@ -58,4 +58,18 @@
 			</exclusions>
 		</dependency>
   </dependencies>
+  <distributionManagement> 
+    <site> 
+      <id>boss</id> 
+      <url>file:/srv/www/htdocs/maven-jetty-pluto-embedded</url> 
+    </site> 
+    <repository> 
+      <id>boss</id> 
+      <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse/storage</url> 
+    </repository> 
+    <snapshotRepository> 
+      <id>boss</id> 
+      <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse.snapshot/storage</url> 
+    </snapshotRepository> 
+  </distributionManagement> 
 </project>
