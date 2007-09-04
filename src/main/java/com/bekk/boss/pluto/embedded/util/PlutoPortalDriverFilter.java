@@ -1,4 +1,4 @@
-/* $Id: $
+/* $Id$
  * 
  * Copyright 2007 BEKK Consulting
  * 
