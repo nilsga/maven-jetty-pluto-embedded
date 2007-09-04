@@ -8,7 +8,7 @@
   <url>http://boss.bekk.no</url>
 	<scm>
        <connection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</connection>
-       <developerConnection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/developerConnection>
+       <developerConnection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</developerConnection>
        <url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</url>
     </scm>
   <build>
