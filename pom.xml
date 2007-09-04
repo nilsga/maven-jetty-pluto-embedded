@@ -73,7 +73,7 @@
   </dependencies>
   <distributionManagement> 
     <site> 
-      <id>boss</id> 
+      <id>boss.ssh.site</id> 
       <url>scpexe://boss.bekk.no/srv/www/htdocs/maven-jetty-pluto-embedded</url> 
     </site> 
     <repository> 
