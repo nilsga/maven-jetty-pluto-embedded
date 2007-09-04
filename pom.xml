@@ -31,6 +31,15 @@
        <developerConnection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</developerConnection>
        <url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</url>
     </scm>
+  <build>
+	  <extensions>
+		  <extension>
+			  <groupId>org.apache.maven.wagon</groupId>
+			  <artifactId>wagon-ssh-external</artifactId>
+			  <version>1.0-alpha-5</version>
+		  </extension>
+    </extensions>
+  </build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -85,15 +94,15 @@
   <distributionManagement> 
     <site> 
       <id>boss</id> 
-      <url>file:/srv/www/htdocs/maven-jetty-pluto-embedded</url> 
+      <url>scpexe://boss.bekk.no/srv/www/htdocs/maven-jetty-pluto-embedded</url> 
     </site> 
     <repository> 
-      <id>boss</id> 
-      <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse/storage</url> 
+      <id>boss.ssh.repo</id> 
+      <url>scpexe://boss.bekk.no/usr/local/jboss-4.0.4.GA/proximity/inhouse/storage</url> 
     </repository> 
     <snapshotRepository> 
-      <id>boss</id> 
-      <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse.snapshot/storage</url> 
+      <id>boss.ssh.snapshots</id> 
+      <url>scpexe://boss.bekk.no/usr/local/jboss-4.0.4.GA/proximity/inhouse.snapshot/storage</url> 
     </snapshotRepository> 
   </distributionManagement> 
 </project>
