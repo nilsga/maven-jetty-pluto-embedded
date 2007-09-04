@@ -56,21 +56,21 @@
 	
 	<listener>
 		<listener-class>
-			org.apache.pluto.embedded.jetty.util.OverrideContextLoaderListener
+			com.bekk.boss.pluto.embedded.jetty.util.OverrideContextLoaderListener
         </listener-class>
 	</listener>
   <listener>
 		<listener-class>
-			org.apache.pluto.embedded.util.PortalStartupListener
+			com.bekk.boss.pluto.embedded.util.PortalStartupListener
 		</listener-class>
 	</listener>
   <filter>
 	  <filter-name>plutoResourceFilter</filter-name>
-	  <filter-class>org.apache.pluto.embedded.util.PlutResourcesFilter</filter-class>
+	  <filter-class>com.bekk.boss.pluto.embedded.util.PlutResourcesFilter</filter-class>
   </filter>
   <filter>
 	 <filter-name>plutoPortalDriver</filter-name>
-	 <filter-class>org.apache.pluto.embedded.util.PlutoPortalDriverFilter</filter-class>
+	 <filter-class>com.bekk.boss.pluto.embedded.util.PlutoPortalDriverFilter</filter-class>
   </filter>
 	
    <filter-mapping>
@@ -276,7 +276,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
   <servlet id="jsp">
     <servlet-name>jsp</servlet-name>
-    <servlet-class>org.apache.pluto.embedded.util.PortletJspServlet</servlet-class>
+    <servlet-class>com.bekk.boss.pluto.embedded.util.PortletJspServlet</servlet-class>
     <init-param>
         <param-name>logVerbosityLevel</param-name>
         <param-value>DEBUG</param-value>
