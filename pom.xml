@@ -26,6 +26,11 @@
   <version>1.0-SNAPSHOT</version>
   <name>maven-jetty-pluto-embedded</name>
   <url>http://boss.bekk.no</url>
+	<scm>
+       <connection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</connection>
+       <developerConnection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</developerConnection>
+       <url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</url>
+    </scm>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
