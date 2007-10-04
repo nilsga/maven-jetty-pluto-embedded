@@ -74,15 +74,15 @@
   <distributionManagement> 
     <site> 
       <id>boss.ssh.site</id> 
-      <url>scpexe://boss.bekk.no/srv/www/htdocs/maven-jetty-pluto-embedded</url> 
+      <url>file:/srv/www/htdocs/maven-jetty-pluto-embedded</url> 
     </site> 
     <repository> 
       <id>boss.ssh.repo</id> 
-      <url>scpexe://boss.bekk.no/usr/local/jboss-4.0.4.GA/proximity/inhouse/storage</url> 
+      <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse/storage</url> 
     </repository> 
     <snapshotRepository> 
       <id>boss.ssh.snapshots</id> 
-      <url>scpexe://boss.bekk.no/usr/local/jboss-4.0.4.GA/proximity/inhouse.snapshot/storage</url> 
+      <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse.snapshot/storage</url> 
     </snapshotRepository> 
   </distributionManagement> 
 </project>
