@@ -63,6 +63,10 @@
 					<groupId>javax.servlet</groupId>
 					<artifactId>servlet-api</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xerces</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>

@@ -106,7 +106,7 @@ limitations under the License.
     </bean>
 
     <bean id="RenderConfigService"
-          class="org.apache.pluto.driver.services.impl.resource.RenderConfigServiceImpl"
+          class="com.bekk.boss.pluto.embedded.util.CustomRenderServiceImpl"
           singleton="true">
     </bean>
     

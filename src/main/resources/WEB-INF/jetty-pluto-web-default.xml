@@ -68,10 +68,6 @@
 	  <filter-name>plutoResourceFilter</filter-name>
 	  <filter-class>com.bekk.boss.pluto.embedded.util.PlutResourcesFilter</filter-class>
   </filter>
-  <filter>
-	 <filter-name>plutoPortalDriver</filter-name>
-	 <filter-class>com.bekk.boss.pluto.embedded.util.PlutoPortalDriverFilter</filter-class>
-  </filter>
 	
    <filter-mapping>
 		<filter-name>plutoResourceFilter</filter-name>
@@ -89,14 +85,8 @@
 		<filter-name>plutoResourceFilter</filter-name>
 		<url-pattern>*.js</url-pattern>
 	</filter-mapping>
-	<filter-mapping>
-		<filter-name>plutoPortalDriver</filter-name>
-		<url-pattern>/pluto/index.jsp</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>plutoPortalDriver</filter-name>
-		<url-pattern>/pluto/index.jsp/*</url-pattern>
-	</filter-mapping>
+
+
 
   <!-- ==================================================================== -->
   <!-- The default servlet.                                                 -->
@@ -297,6 +287,12 @@
     -->
     <load-on-startup>0</load-on-startup>
   </servlet>
+	
+	<servlet>
+        <servlet-name>plutoPortalDriver</servlet-name>
+        <servlet-class>org.apache.pluto.driver.PortalDriverServlet</servlet-class>
+    </servlet>
+
 
   <servlet-mapping> 
     <servlet-name>jsp</servlet-name> 
@@ -309,6 +305,11 @@
     <url-pattern>*.JSPX</url-pattern>
     <url-pattern>*.XSP</url-pattern>
   </servlet-mapping>
+	
+	    <servlet-mapping>
+        <servlet-name>plutoPortalDriver</servlet-name>
+        <url-pattern>/portal/*</url-pattern>
+    </servlet-mapping>
 
 
 
