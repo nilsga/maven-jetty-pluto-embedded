@@ -105,7 +105,7 @@
       <url>file:/usr/local/jboss-4.0.4.GA/proximity/inhouse.snapshot/storage</url> 
     </snapshotRepository> 
   </distributionManagement> 
-  repositories>
+  <repositories>
 	<repository>
         <id>apache.snapshots</id>
         <name>Apache Maven Repository (Snapshots and Test Builds)</name>
