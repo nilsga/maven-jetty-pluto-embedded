@@ -17,6 +17,7 @@
 package com.bekk.boss.pluto.embedded.util;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,6 +32,7 @@ public class PlutoPortalDriverFilter implements Filter {
 
 	private PortalDriverFilter portalDriver;
 	private String portletId;
+	private String[] styles = new String[0];
 	
 	public PlutoPortalDriverFilter() {
 		this.portalDriver = new PortalDriverFilter();
@@ -42,12 +44,17 @@ public class PlutoPortalDriverFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		request.setAttribute("org_apache_pluto_embedded_portletId", portletId);
+		request.setAttribute("org_apache_pluto_embedded_extraStyles", styles);
 		portalDriver.doFilter(request, response, chain);
 	}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		portalDriver.init(filterConfig);
 		portletId = System.getProperty("org.apache.pluto.embedded.portletId");
+		String extraStyles = System.getProperty("org.apache.pluto.embedded.extraStyles");
+		if(extraStyles != null) {
+			styles = extraStyles.split(",");
+		}
 		if(portletId == null || "".equals(portletId.trim())) {
 			throw new ServletException("No portlet id specified. Please set the system property \"org.apache.pluto.embedded.portletId\"");
 		}
