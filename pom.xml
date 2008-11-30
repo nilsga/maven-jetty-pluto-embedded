@@ -14,6 +14,13 @@
 		<developerConnection>scm:svn:https://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</developerConnection>
 		<url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</url>
 	</scm>
+	<licenses>
+    		<license>
+      	<name>The Apache Software License, Version 2.0</name>
+      	<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      	<distribution>repo</distribution>
+    	</license>
+  </licenses>
 	<developers>
 		<developer>
 			<id>nilsga</id>
