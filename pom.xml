@@ -1,20 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bekk.boss</groupId>
 	<artifactId>maven-jetty-pluto-embedded</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>maven-jetty-pluto-embedded</name>
 	<description> Artifact allowing pluto to be embedded in Jetty in a maven project. This
 		makes it possible to use the maven-jetty-plugin and create a launcher in Eclipse for
 		running your portlets. </description>
 	<url>http://boss.bekk.no</url>
 	<scm>
-		<connection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</connection>
-		<developerConnection>scm:svn:https://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</developerConnection>
-		<url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</url>
+		<connection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</connection>
+		<developerConnection>scm:svn:https://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</developerConnection>
+		<url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</url>
 	</scm>
 	<developers>
 		<developer>
