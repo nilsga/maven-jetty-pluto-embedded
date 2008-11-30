@@ -3,16 +3,16 @@
 	<groupId>com.bekk.boss</groupId>
 	<artifactId>maven-jetty-pluto-embedded</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.1</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<name>maven-jetty-pluto-embedded</name>
 	<description> Artifact allowing pluto to be embedded in Jetty in a maven project. This
 		makes it possible to use the maven-jetty-plugin and create a launcher in Eclipse for
 		running your portlets. </description>
 	<url>http://boss.bekk.no</url>
 	<scm>
-		<connection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</connection>
-		<developerConnection>scm:svn:https://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</developerConnection>
-		<url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/tags/maven-jetty-pluto-embedded-1.0.1</url>
+		<connection>scm:svn:http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</connection>
+		<developerConnection>scm:svn:https://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</developerConnection>
+		<url>http://boss.bekk.no/repos/projects/maven-jetty-pluto-embedded/</url>
 	</scm>
 	<developers>
 		<developer>
