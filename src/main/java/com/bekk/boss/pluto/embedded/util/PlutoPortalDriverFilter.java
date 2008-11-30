@@ -17,7 +17,6 @@
 package com.bekk.boss.pluto.embedded.util;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,40 +30,54 @@ import org.apache.pluto.driver.PortalDriverFilter;
 public class PlutoPortalDriverFilter implements Filter {
 
 	private PortalDriverFilter portalDriver;
-	private String portletId;
-	private String[] styles = new String[0];
 	
+	private FilterConfig filterConfig;
+	
+	private String[] portletIds;
+
+	private String[] styles = new String[0];
+
 	public PlutoPortalDriverFilter() {
 		this.portalDriver = new PortalDriverFilter();
 	}
-	
+
 	public void destroy() {
 		portalDriver.destroy();
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		request.setAttribute("org_apache_pluto_embedded_portletId", portletId);
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
+			ServletException {
+		request.setAttribute("org_apache_pluto_embedded_portletIds", portletIds);
 		request.setAttribute("org_apache_pluto_embedded_extraStyles", styles);
 		portalDriver.doFilter(request, response, chain);
 	}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		portalDriver.init(filterConfig);
-		portletId = System.getProperty("org.apache.pluto.embedded.portletId");
+		this.filterConfig = filterConfig;
+		String ids = System.getProperty("org.apache.pluto.embedded.portletIds");
 		String extraStyles = System.getProperty("org.apache.pluto.embedded.extraStyles");
-		if(extraStyles != null) {
+		if (extraStyles != null) {
 			styles = extraStyles.split(",");
 		}
-		if(portletId == null || "".equals(portletId.trim())) {
-			throw new ServletException("No portlet id specified. Please set the system property \"org.apache.pluto.embedded.portletId\"");
+		if (ids == null || "".equals(ids.trim())) {
+			throw new ServletException(
+					"No portlet id specified. Please set the system property \"org.apache.pluto.embedded.portletIds\"");
 		}
+		portletIds = encodePortletIds(ids.split(","));
+	}
+	
+	private String[] encodePortletIds(String[] rawIds) {
+		String[] ids = new String[rawIds.length];
 		String contextPath = filterConfig.getServletContext().getContextPath();
 		StringBuffer tempId = new StringBuffer();
-		if(!contextPath.startsWith("/")) {
+		if (!contextPath.startsWith("/")) {
 			tempId.append("/");
 		}
-		tempId.append(contextPath).append(".").append(portletId).append("!");
-		portletId = tempId.toString();
+		for(int i = 0; i < rawIds.length; i++) {
+			ids[i] = contextPath + "." + rawIds[i] + "!";
+		}
+		return ids;
 	}
 
 }
