@@ -72,6 +72,10 @@
 	 <filter-name>plutoPortalDriver</filter-name>
 	 <filter-class>com.bekk.boss.pluto.embedded.util.PlutoPortalDriverFilter</filter-class>
   </filter>
+  <filter>
+	  <filter-name>fakeUserPrincipalFilter</filter-name>
+	  <filter-class>com.bekk.boss.pluto.embedded.util.FakeUserPrincipalFilter</filter-class>
+  </filter>
 	
    <filter-mapping>
 		<filter-name>plutoResourceFilter</filter-name>
@@ -88,6 +92,14 @@
 	<filter-mapping>
 		<filter-name>plutoResourceFilter</filter-name>
 		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+		<filter-mapping>
+		<filter-name>fakeUserPrincipalFilter</filter-name>
+		<url-pattern>/pluto/index.jsp</url-pattern>>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>fakeUserPrincipalFilter</filter-name>
+		<url-pattern>/pluto/index.jsp/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>plutoPortalDriver</filter-name>
