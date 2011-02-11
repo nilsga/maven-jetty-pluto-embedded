@@ -34,7 +34,7 @@ public class OverrideContextLoaderListener implements ServletContextListener {
 
 	private ContextLoaderListener contextLoaderListener;
 
-	private static final String PLUTO_SERVICE_CONFIG_LOCATION = "classpath:pluto-portal-driver-services-config.xml";
+	private static final String PLUTO_SERVICE_CONFIG_LOCATION = "classpath:/pluto-portal-driver-services-config.xml";
 
 	public OverrideContextLoaderListener() {
 		this.contextLoaderListener = new ContextLoaderListener();

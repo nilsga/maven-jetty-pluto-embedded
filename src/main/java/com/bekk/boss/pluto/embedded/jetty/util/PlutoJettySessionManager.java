@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
-import org.apache.pluto.internal.impl.PortletSessionImpl;
+import org.apache.pluto.container.impl.PortletSessionImpl;
 import org.mortbay.jetty.servlet.HashSessionManager;
 
 public class PlutoJettySessionManager extends HashSessionManager {

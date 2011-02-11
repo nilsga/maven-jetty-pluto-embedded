@@ -27,8 +27,6 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import com.bekk.boss.pluto.embedded.jetty.util.CustomDispatcher;
-
 
 public class WrappedServletContext implements ServletContext {
 
@@ -89,7 +87,7 @@ public class WrappedServletContext implements ServletContext {
 	}
 
 	public RequestDispatcher getRequestDispatcher(String path) {
-		return new CustomDispatcher(realContext.getRequestDispatcher(path));
+		return realContext.getRequestDispatcher(path);
 	}
 
 	public URL getResource(String path) throws MalformedURLException {

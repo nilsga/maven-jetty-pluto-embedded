@@ -6,19 +6,23 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.pluto.driver.*;
 import org.apache.pluto.driver.config.DriverConfigurationException;
 import org.apache.pluto.driver.services.impl.resource.RenderConfigServiceImpl;
+import org.apache.pluto.driver.services.impl.resource.ResourceConfig;
 import org.apache.pluto.driver.services.portal.PageConfig;
 
 public class CustomRenderServiceImpl extends RenderConfigServiceImpl {
 
 	private List pages;
 	
-	public CustomRenderServiceImpl() {
-		pages = new ArrayList();
-	}
-	
-	public void addPage(PageConfig arg0) {
+    public CustomRenderServiceImpl(ResourceConfig config) {
+        super(config);
+        pages = new ArrayList();
+        init(org.apache.pluto.driver.PortalStartupListener.getServletContext());
+    }
+
+    public void addPage(PageConfig arg0) {
 		pages.add(arg0);
 	}
 
@@ -45,8 +49,6 @@ public class CustomRenderServiceImpl extends RenderConfigServiceImpl {
 		pages.remove(arg0);
 	}
 
-	public void destroy() throws DriverConfigurationException {
-	}
 
 	public void init(ServletContext arg0) throws DriverConfigurationException {
 		PageConfig page = new PageConfig();
