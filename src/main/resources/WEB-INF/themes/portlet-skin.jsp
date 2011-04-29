@@ -17,32 +17,35 @@ See the License for the specific language governing permissions and
 limitations under the License.
 --%>
 <%@ taglib uri="http://portals.apache.org/pluto" prefix="pluto" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
 <!-- Use pluto portlet tag to render the portlet -->
 <pluto:portlet portletId="${portlet}">
 
   <!-- Assemble the rendering result -->
-  <div class="portlet" id='<c:out value="${portlet}"/>'>
-    <div class="header">
-      <!-- Portlet Mode Controls -->
-      <pluto:modeAnchor portletMode="view"/>
-      <pluto:modeAnchor portletMode="edit"/>
-      <pluto:modeAnchor portletMode="help"/>
-      <!-- Window State Controls -->
-      <pluto:windowStateAnchor windowState="minimized"/>
-      <pluto:windowStateAnchor windowState="maximized"/>
-      <pluto:windowStateAnchor windowState="normal"/>
-      <a href="<pluto:url windowState="minimized"/>"><span class="min"></span></a>
-      <a href="<pluto:url windowState="maximized"/>"><span class="max"></span></a>
-      <a href="<pluto:url windowState="normal"/>"><span class="norm"></span></a>
-      <!-- Portlet Title -->
-      <h2 class="title"><pluto:title/></h2>
-    </div>
+  <div class="portlet">
+    <table class="header" width="100%">
+    	<tr>
+    	<td class="header" align="left">
+	      <!-- Portlet Title -->
+	      <h2 class="title"><pluto:title/></h2>
+	</td>
+        <td class="header" align="right">
+	      <!-- Portlet Mode Controls -->
+	      <pluto:modeDropDown />
+
+	      <!-- Window State Controls -->
+	      <pluto:windowStateAnchor windowState="minimized" icon='<%= request.getContextPath() + "/images/controls/min.png"%>' />
+	      <pluto:windowStateAnchor windowState="maximized" icon='<%= request.getContextPath() + "/images/controls/max.png"%>' />
+	      <pluto:windowStateAnchor windowState="normal" icon='<%= request.getContextPath() + "/images/controls/norm.png"%>' />
+    	</td>
+    	</tr>
+    </table>
     <div class="body">
       <pluto:render/>
     </div>
   </div>
 
 </pluto:portlet>
+
 

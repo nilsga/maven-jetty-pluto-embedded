@@ -35,6 +35,7 @@ group (the left column) displays portlets with odd IDs, while the second group
     <style type="text/css" title="currentStyle" media="screen">
         @import "<c:out value="${pageContext.request.contextPath}"/>/pluto.css";
         @import "<c:out value="${pageContext.request.contextPath}"/>/portlet-spec-1.0.css";
+        @import "<c:out value="${pageContext.request.contextPath}"/>/portlet-spec-2.0.css"; 
         <c:forEach items="${org_apache_pluto_embedded_extraStyles}" var="style">
             @import "<c:out value="${pageContext.request.contextPath}"/><c:out value="${style}"/>";
         </c:forEach>
