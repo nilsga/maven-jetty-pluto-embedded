@@ -326,14 +326,6 @@
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-
-   <jsp-config>
-     <taglib>
-       <taglib-uri>http://portals.apache.org/pluto</taglib-uri>
-       <taglib-location>/WEB-INF/tld/pluto.tld</taglib-location>
-     </taglib>
-   </jsp-config>
-
       
 
   <!-- ==================================================================== -->
