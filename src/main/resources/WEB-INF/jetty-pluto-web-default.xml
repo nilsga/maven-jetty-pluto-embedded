@@ -59,10 +59,14 @@
 			com.bekk.boss.pluto.embedded.util.PortalStartupListener
 		</listener-class>
 	</listener>
-  <filter>
-	  <filter-name>plutoResourceFilter</filter-name>
-	  <filter-class>com.bekk.boss.pluto.embedded.util.PlutResourcesFilter</filter-class>
-  </filter>
+    <filter>
+        <filter-name>plutoJettyEmbeddedFilter</filter-name>
+        <filter-class>com.bekk.boss.pluto.embedded.util.PlutoJettyEmbeddedFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>plutoResourceFilter</filter-name>
+        <filter-class>com.bekk.boss.pluto.embedded.util.PlutoResourcesFilter</filter-class>
+    </filter>
     <filter>
         <filter-name>fakeUserPrincipalFilter</filter-name>
         <filter-class>com.bekk.boss.pluto.embedded.util.FakeUserPrincipalFilter</filter-class>
@@ -84,6 +88,10 @@
 		<filter-name>plutoResourceFilter</filter-name>
 		<url-pattern>*.js</url-pattern>
 	</filter-mapping>
+    <filter-mapping>
+        <filter-name>plutoJettyEmbeddedFilter</filter-name>
+        <url-pattern>/portal/*</url-pattern>
+    </filter-mapping>
 	<filter-mapping>
 		<filter-name>fakeUserPrincipalFilter</filter-name>
 		<url-pattern>/portal/*</url-pattern>

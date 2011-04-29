@@ -32,7 +32,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class PlutResourcesFilter implements Filter {
+public class PlutoResourcesFilter implements Filter {
 
 	private ServletContext servletContext;
 
