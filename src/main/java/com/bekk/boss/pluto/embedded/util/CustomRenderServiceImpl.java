@@ -15,6 +15,7 @@ import org.apache.pluto.driver.services.portal.PageConfig;
 public class CustomRenderServiceImpl extends RenderConfigServiceImpl {
 
 	private List pages;
+    private String theme = "/WEB-INF/themes/pluto-default-theme.jsp";
 	
     public CustomRenderServiceImpl(ResourceConfig config) {
         super(config);
@@ -51,9 +52,13 @@ public class CustomRenderServiceImpl extends RenderConfigServiceImpl {
 
 
 	public void init(ServletContext arg0) throws DriverConfigurationException {
+        String customTheme = System.getProperty("org.apache.pluto.embedded.customTheme");
+        if(customTheme != null) {
+            theme = customTheme;
+        }
 		PageConfig page = new PageConfig();
 		page.setName("Embedded Portlets");
-		page.setUri("/WEB-INF/themes/pluto-default-theme.jsp");
+		page.setUri(theme);
 		String[] portletIds = System.getProperty("org.apache.pluto.embedded.portletIds").split(",");
 		for(int i = 0; i < portletIds.length; i++) {
 			page.addPortlet(arg0.getContextPath(), portletIds[i]);
